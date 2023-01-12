@@ -11,9 +11,9 @@ export default function App() {
     setCount((c) => c + 1);
   };
 
-  const addTodo = () => {
+  const addTodo = useCallback(() => {
     setTodos((t) => [...t, "New Todo"]);
-  };
+  }, [todos]);
 
   return (
     <View style={styles.container}>
