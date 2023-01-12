@@ -2,6 +2,7 @@ import { memo } from "react";
 import { View, Pressable, Text } from "react-native";
 
 const Todos = ({ todos, addTodo }) => {
+  console.log('child render');
   return (
     <>
       <Text>My Todos</Text>

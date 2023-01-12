@@ -1,9 +1,9 @@
-import { useState, useCallback } from "react";
-import { Pressable, Text } from "react-native";
-import Todos from "./Todos";
+import { StyleSheet, Text, View, Pressable } from 'react-native';
+import { useState, useCallback } from 'react';
+import Todos from './Todos';
 
-export const App = () => {
-  
+export default function App() {
+
   const [count, setCount] = useState(0);
   const [todos, setTodos] = useState([]);
 
@@ -11,20 +11,28 @@ export const App = () => {
     setCount((c) => c + 1);
   };
 
-  const addTodo = useCallback(() => {
+  const addTodo = () => {
     setTodos((t) => [...t, "New Todo"]);
-  }, [todos]);
+  };
 
   return (
-    <>
-      <Todos todos={todos} addTodo={addTodo} />
-      <>
+    <View style={styles.container}>
+      <Todos todos={todos} addTodo={addTodo}/>
+      <View>
         <Text>Count: {count}</Text>
         <Pressable onPress={increment}>
           <Text>+</Text>
         </Pressable>
-      </>
-    </>
+      </View>
+    </View>
   );
-
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
