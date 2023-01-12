@@ -6,7 +6,9 @@ export default function App() {
 
   const [inputValue, setInputValue] = useState("");
   const count = useRef(0);
+  // const count = {current:0};
   const previousInputValue = useRef("");
+  // const previousInputValue = {current:""};
 
   useEffect(() => {
     count.current = count.current + 1;
